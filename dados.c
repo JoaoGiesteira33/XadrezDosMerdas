@@ -8,17 +8,15 @@ void set_jog(ESTADO est, int jog_n){
     est->jogador_atual = jog_n;
 }
 
-void set_empty(ESTADO est, COORD coord){
-    est->tab[coord.lin][coord.col]->piece = VAZIO;
-}
-
 void set_casa(ESTADO est, COORD coord, CASA casa){
     est->tab[coord.lin][coord.col] = casa;
 }
 
 void create_casa(ESTADO est, COORD coord, COR c, PIECE p){
-    est->tab[coord.lin][coord.col]->cor = c;
-    est->tab[coord.lin][coord.col]->piece = p;
+    CASA new_casa = malloc(sizeof(struct casa));
+    new_casa->cor = c;
+    new_casa->piece = p;
+    est->tab[coord.lin][coord.col] = new_casa;
 }
 
 ESTADO inicializar_estado(){
@@ -31,10 +29,10 @@ ESTADO inicializar_estado(){
     for(int i = 0; i < 8 ; i++){ //Cria peoes e vazios
          create_casa(est,(COORD){1,i},BRANCA,PEAO);
          create_casa(est,(COORD){6,i},PRETA,PEAO);
-         set_empty(est,(COORD){2,i});
-         set_empty(est,(COORD){3,i});
-         set_empty(est,(COORD){4,i});
-         set_empty(est,(COORD){5,i});
+         create_casa(est,(COORD){2,i},BRANCA,VAZIO);
+         create_casa(est,(COORD){3,i},BRANCA,VAZIO);
+         create_casa(est,(COORD){4,i},BRANCA,VAZIO);
+         create_casa(est,(COORD){5,i},BRANCA,VAZIO);
          create_casa(est,(COORD){0,i},BRANCA,ordem[i]);
          create_casa(est,(COORD){7,i},PRETA,ordem[i]);
     }

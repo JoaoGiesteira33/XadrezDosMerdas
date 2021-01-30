@@ -9,7 +9,7 @@ typedef struct coord{
 }COORD;
 
 typedef enum{
-    VAZIO,
+    VAZIO = ' ',
     PEAO = 'p',
     CAVALO = 'n',
     BISPO = 'b',

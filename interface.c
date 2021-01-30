@@ -22,6 +22,7 @@ void imprime_tabuleiro(ESTADO est){
         for(int c = 0 ; c < 8 ; c++){
             print_casa(est->tab[l][c]);
         }
+        putchar('\n');
     }
     
 }
