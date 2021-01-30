@@ -10,12 +10,12 @@ typedef struct coord{
 
 typedef enum{
     VAZIO = ' ',
-    PEAO = 'p',
-    CAVALO = 'n',
-    BISPO = 'b',
-    TORRE = 'r',
-    RAINHA = 'q',
-    REI = 'k'
+    PEAO = 'P',
+    CAVALO = 'N',
+    BISPO = 'B',
+    TORRE = 'R',
+    RAINHA = 'Q',
+    REI = 'K'
 }PIECE;
 
 typedef enum{
