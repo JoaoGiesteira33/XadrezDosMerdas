@@ -8,8 +8,23 @@ void set_jog(ESTADO est, int jog_n){
     est->jogador_atual = jog_n;
 }
 
-void set_casa(ESTADO est, COORD coord, CASA casa){
-    est->tab[coord.lin][coord.col] = casa;
+COR get_cor(ESTADO est, COORD coord){
+    COR cor;
+    cor = est->tab[coord.lin][coord.col]->cor;
+
+    return cor;
+}
+
+PIECE get_piece(ESTADO est, COORD coord){
+    PIECE piece;
+    piece = est->tab[coord.lin][coord.col]->piece;
+
+    return piece;
+}
+
+void set_casa(ESTADO est, COORD coord, COR c, PIECE p){
+    est->tab[coord.lin][coord.col]->cor = c;
+    est->tab[coord.lin][coord.col]->piece = p;
 }
 
 void create_casa(ESTADO est, COORD coord, COR c, PIECE p){

@@ -6,7 +6,7 @@
 
 int main(){
     ESTADO est = inicializar_estado();
-    interpretador(est);
+    while(!interpretador(est));
 
     return 0;
 }

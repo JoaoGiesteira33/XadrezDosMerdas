@@ -31,8 +31,8 @@ char *casa_to_char(CASA casa){
 
 void print_casa(CASA casa){
     if(casa->cor == BRANCA)
-        printf(WHT " %c " RESET "|", (casa->piece));
-    else printf(BLK " %c " RESET "|", (casa->piece));
+        printf(WHT " %s " RESET "|", casa_to_char(casa));
+    else printf(BLK " %s " RESET "|", casa_to_char(casa));
 }
 
 void imprime_linha(){
@@ -59,19 +59,25 @@ void imprime_tabuleiro(ESTADO est){
 
 
 int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo //e4 e5
-    char linha[BUF_SIZE];
     imprime_tabuleiro(est);
 
-    printf("Insira jogada tipo: c1 c2\n");
+
+    printf("Insira jogada legal: ");
     char * coord1 = malloc(sizeof(char)* 3);
     char * coord2 = malloc(sizeof(char)*3);
-
-    scanf("%s %s",coord1,coord2);
-
+    
     COORD coord_i , coord_f;
+
+    
+    
+    do{
+    scanf("%s %s",coord1,coord2);
 
     coord_i = text_to_coord(coord1);
     coord_f = text_to_coord(coord2);
+    }while(!valida_jogada(est,coord_i,coord_f));
+    
+    move_piece(est,coord_i,coord_f);
 
-    printf("%d%d %d%d\n",coord_i.lin,coord_i.col,coord_f.lin,coord_f.col);
+    return 0;
 }

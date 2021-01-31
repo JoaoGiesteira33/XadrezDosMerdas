@@ -34,10 +34,12 @@ typedef struct estado{
     int check;
 }*ESTADO;
 
+COR get_cor(ESTADO est, COORD coord);
+PIECE get_piece(ESTADO est, COORD coord);
 void set_check(ESTADO est, int check_n);
 void set_jog(ESTADO est, int jog_n);
 void set_empty(ESTADO est, COORD coord);
-void set_casa(ESTADO est, COORD coord, CASA casa);
+void set_casa(ESTADO est, COORD coord, COR c, PIECE p);
 void create_casa(ESTADO est, COORD coord, COR c, PIECE p);
 ESTADO inicializar_estado();
 
