@@ -58,7 +58,19 @@ void imprime_tabuleiro(ESTADO est){
 }
 
 
-int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo
+int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo //e4 e5
     char linha[BUF_SIZE];
-    
+    imprime_tabuleiro(est);
+
+    printf("Insira jogada tipo: c1 c2\n");
+    char *coord1, *coord2;
+
+    scanf("%s %s",coord1,coord2);
+
+    COORD coord_i , coord_f;
+
+    coord_i = text_to_coord(coord1);
+    coord_f = text_to_coord(coord2);
+
+    printf("%c%c %c%c\n",coord_i.lin,coord_i.col,coord_f.lin,coord_f.col);
 }

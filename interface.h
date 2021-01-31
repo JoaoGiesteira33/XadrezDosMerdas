@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "dados.h"
+#include "logica.h"
 #define BUF_SIZE 1024
 
 #define RED   "\x1B[31m"

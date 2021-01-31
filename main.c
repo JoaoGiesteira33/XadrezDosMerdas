@@ -6,11 +6,7 @@
 
 int main(){
     ESTADO est = inicializar_estado();
-    imprime_tabuleiro(est);
-    char *coordtext = "e4";
-    COORD c;
-    c = text_to_coord(coordtext);
-    printf("%d  %d\n",c.lin,c.col);
+    interpretador(est);
 
     return 0;
 }
