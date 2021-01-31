@@ -63,7 +63,8 @@ int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo //e4 e5
     imprime_tabuleiro(est);
 
     printf("Insira jogada tipo: c1 c2\n");
-    char *coord1, *coord2;
+    char * coord1 = malloc(sizeof(char)* 3);
+    char * coord2 = malloc(sizeof(char)*3);
 
     scanf("%s %s",coord1,coord2);
 
@@ -72,5 +73,5 @@ int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo //e4 e5
     coord_i = text_to_coord(coord1);
     coord_f = text_to_coord(coord2);
 
-    printf("%c%c %c%c\n",coord_i.lin,coord_i.col,coord_f.lin,coord_f.col);
+    printf("%d%d %d%d\n",coord_i.lin,coord_i.col,coord_f.lin,coord_f.col);
 }
