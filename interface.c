@@ -1,9 +1,38 @@
 #include "interface.h"
 
+char *casa_to_char(CASA casa){
+    char *peca = malloc(sizeof(char) * 3);
+
+    switch (casa->piece){
+        case TORRE: 
+            strcpy(peca,"♖");
+            break;
+        case REI: 
+            strcpy(peca,"♔");
+            break;
+        case RAINHA: 
+            strcpy(peca,"♕");
+            break;
+        case CAVALO: 
+            strcpy(peca,"♘");
+            break;
+        case PEAO: 
+            strcpy(peca,"♙");
+            break;
+        case BISPO:
+            strcpy(peca,"♗");
+            break;
+        case VAZIO:
+            strcpy(peca," ");
+            break;
+    }
+    return peca;
+}
+
 void print_casa(CASA casa){
     if(casa->cor == BRANCA)
-        printf(WHT " %c " RESET "|", casa->piece);
-    else printf(BLK " %c " RESET "|", casa->piece);
+        printf(WHT " %c " RESET "|", (casa->piece));
+    else printf(BLK " %c " RESET "|", (casa->piece));
 }
 
 void imprime_linha(){
@@ -26,4 +55,10 @@ void imprime_tabuleiro(ESTADO est){
     }
     imprime_linha();
     imprime_letras();
+}
+
+
+int interpretador (ESTADO est) { // Interpretador de Comandos do Jogo
+    char linha[BUF_SIZE];
+    
 }
